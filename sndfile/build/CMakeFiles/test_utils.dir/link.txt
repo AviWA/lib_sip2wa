@@ -1,0 +1,2 @@
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-ar qc libtest_utils.a CMakeFiles/test_utils.dir/tests/utils.c.o
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-ranlib libtest_utils.a

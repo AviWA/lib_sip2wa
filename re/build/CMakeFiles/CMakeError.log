@@ -1,0 +1,207 @@
+Determining if the backtrace exist failed with the following output:
+Change Dir: /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-zF2mBh
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_79b65/fast && gmake[1]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-zF2mBh'
+/usr/bin/gmake  -f CMakeFiles/cmTC_79b65.dir/build.make CMakeFiles/cmTC_79b65.dir/build
+gmake[2]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-zF2mBh'
+Building C object CMakeFiles/cmTC_79b65.dir/CheckSymbolExists.c.o
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=aarch64-none-linux-android23 --sysroot=/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE -MD -MT CMakeFiles/cmTC_79b65.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_79b65.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_79b65.dir/CheckSymbolExists.c.o -c /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-zF2mBh/CheckSymbolExists.c
+/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-zF2mBh/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'backtrace'
+  return ((int*)(&backtrace))[argc];
+                  ^
+1 error generated.
+gmake[2]: *** [CMakeFiles/cmTC_79b65.dir/build.make:79: CMakeFiles/cmTC_79b65.dir/CheckSymbolExists.c.o] Error 1
+gmake[2]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-zF2mBh'
+gmake[1]: *** [Makefile:127: cmTC_79b65/fast] Error 2
+gmake[1]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-zF2mBh'
+
+
+File CheckSymbolExists.c:
+/* */
+#include <execinfo.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef backtrace
+  return ((int*)(&backtrace))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-YBJ1rk
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_51099/fast && gmake[1]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-YBJ1rk'
+/usr/bin/gmake  -f CMakeFiles/cmTC_51099.dir/build.make CMakeFiles/cmTC_51099.dir/build
+gmake[2]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-YBJ1rk'
+Building C object CMakeFiles/cmTC_51099.dir/src.c.o
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=aarch64-none-linux-android23 --sysroot=/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DCMAKE_HAVE_LIBC_PTHREAD  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_51099.dir/src.c.o -MF CMakeFiles/cmTC_51099.dir/src.c.o.d -o CMakeFiles/cmTC_51099.dir/src.c.o -c /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-YBJ1rk/src.c
+/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-YBJ1rk/src.c:13:3: error: call to undeclared function 'pthread_cancel'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  pthread_cancel(thread);
+  ^
+/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-YBJ1rk/src.c:13:3: note: did you mean 'pthread_once'?
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/pthread.h:258:5: note: 'pthread_once' declared here
+int pthread_once(pthread_once_t* _Nonnull __once, void (* _Nonnull __init_routine)(void));
+    ^
+1 error generated.
+gmake[2]: *** [CMakeFiles/cmTC_51099.dir/build.make:79: CMakeFiles/cmTC_51099.dir/src.c.o] Error 1
+gmake[2]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-YBJ1rk'
+gmake[1]: *** [Makefile:127: cmTC_51099/fast] Error 2
+gmake[1]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-YBJ1rk'
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-SrnaTn
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b7d82/fast && gmake[1]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-SrnaTn'
+/usr/bin/gmake  -f CMakeFiles/cmTC_b7d82.dir/build.make CMakeFiles/cmTC_b7d82.dir/build
+gmake[2]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-SrnaTn'
+Building C object CMakeFiles/cmTC_b7d82.dir/CheckFunctionExists.c.o
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=aarch64-none-linux-android23 --sysroot=/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE -MD -MT CMakeFiles/cmTC_b7d82.dir/CheckFunctionExists.c.o -MF CMakeFiles/cmTC_b7d82.dir/CheckFunctionExists.c.o.d -o CMakeFiles/cmTC_b7d82.dir/CheckFunctionExists.c.o -c /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-SrnaTn/CheckFunctionExists.c
+Linking C executable cmTC_b7d82
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b7d82.dir/link.txt --verbose=1
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=aarch64-none-linux-android23 --sysroot=/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=pthread_create -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments    CMakeFiles/cmTC_b7d82.dir/CheckFunctionExists.c.o -o cmTC_b7d82  -lpthreads -latomic -lm 
+ld.lld: error: unable to find library -lpthreads
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+gmake[2]: *** [CMakeFiles/cmTC_b7d82.dir/build.make:100: cmTC_b7d82] Error 1
+gmake[2]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-SrnaTn'
+gmake[1]: *** [Makefile:127: cmTC_b7d82/fast] Error 2
+gmake[1]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-SrnaTn'
+
+
+
+Determining if the function pthread_create exists in the pthread failed with the following output:
+Change Dir: /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-CvXdds
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f0811/fast && gmake[1]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-CvXdds'
+/usr/bin/gmake  -f CMakeFiles/cmTC_f0811.dir/build.make CMakeFiles/cmTC_f0811.dir/build
+gmake[2]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-CvXdds'
+Building C object CMakeFiles/cmTC_f0811.dir/CheckFunctionExists.c.o
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=aarch64-none-linux-android23 --sysroot=/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE -MD -MT CMakeFiles/cmTC_f0811.dir/CheckFunctionExists.c.o -MF CMakeFiles/cmTC_f0811.dir/CheckFunctionExists.c.o.d -o CMakeFiles/cmTC_f0811.dir/CheckFunctionExists.c.o -c /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-CvXdds/CheckFunctionExists.c
+Linking C executable cmTC_f0811
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f0811.dir/link.txt --verbose=1
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=aarch64-none-linux-android23 --sysroot=/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=pthread_create -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments    CMakeFiles/cmTC_f0811.dir/CheckFunctionExists.c.o -o cmTC_f0811  -lpthread -latomic -lm 
+ld.lld: error: unable to find library -lpthread
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+gmake[2]: *** [CMakeFiles/cmTC_f0811.dir/build.make:100: cmTC_f0811] Error 1
+gmake[2]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-CvXdds'
+gmake[1]: *** [Makefile:127: cmTC_f0811/fast] Error 2
+gmake[1]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-CvXdds'
+
+
+
+Determining if the res_ninit exist failed with the following output:
+Change Dir: /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-RaOOW9
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_8a405/fast && gmake[1]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-RaOOW9'
+/usr/bin/gmake  -f CMakeFiles/cmTC_8a405.dir/build.make CMakeFiles/cmTC_8a405.dir/build
+gmake[2]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-RaOOW9'
+Building C object CMakeFiles/cmTC_8a405.dir/CheckSymbolExists.c.o
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=aarch64-none-linux-android23 --sysroot=/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE -MD -MT CMakeFiles/cmTC_8a405.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_8a405.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_8a405.dir/CheckSymbolExists.c.o -c /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-RaOOW9/CheckSymbolExists.c
+/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-RaOOW9/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'res_ninit'; did you mean 'res_init'?
+  return ((int*)(&res_ninit))[argc];
+                  ^~~~~~~~~
+                  res_init
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/resolv.h:57:5: note: 'res_init' declared here
+int res_init(void);
+    ^
+1 error generated.
+gmake[2]: *** [CMakeFiles/cmTC_8a405.dir/build.make:79: CMakeFiles/cmTC_8a405.dir/CheckSymbolExists.c.o] Error 1
+gmake[2]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-RaOOW9'
+gmake[1]: *** [Makefile:127: cmTC_8a405/fast] Error 2
+gmake[1]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-RaOOW9'
+
+
+File CheckSymbolExists.c:
+/* */
+#include <resolv.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef res_ninit
+  return ((int*)(&res_ninit))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function thrd_create exists failed with the following output:
+Change Dir: /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-p3AQxk
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fcddb/fast && gmake[1]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-p3AQxk'
+/usr/bin/gmake  -f CMakeFiles/cmTC_fcddb.dir/build.make CMakeFiles/cmTC_fcddb.dir/build
+gmake[2]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-p3AQxk'
+Building C object CMakeFiles/cmTC_fcddb.dir/CheckFunctionExists.c.o
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=aarch64-none-linux-android23 --sysroot=/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=thrd_create -fPIE -MD -MT CMakeFiles/cmTC_fcddb.dir/CheckFunctionExists.c.o -MF CMakeFiles/cmTC_fcddb.dir/CheckFunctionExists.c.o.d -o CMakeFiles/cmTC_fcddb.dir/CheckFunctionExists.c.o -c /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-p3AQxk/CheckFunctionExists.c
+Linking C executable cmTC_fcddb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fcddb.dir/link.txt --verbose=1
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=aarch64-none-linux-android23 --sysroot=/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=thrd_create -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments    CMakeFiles/cmTC_fcddb.dir/CheckFunctionExists.c.o -o cmTC_fcddb  -latomic -lm 
+ld.lld: error: undefined symbol: thrd_create
+>>> referenced by CheckFunctionExists.c:17
+>>>               CMakeFiles/cmTC_fcddb.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+gmake[2]: *** [CMakeFiles/cmTC_fcddb.dir/build.make:100: cmTC_fcddb] Error 1
+gmake[2]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-p3AQxk'
+gmake[1]: *** [Makefile:127: cmTC_fcddb/fast] Error 2
+gmake[1]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-p3AQxk'
+
+
+
+Determining if the kqueue exist failed with the following output:
+Change Dir: /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-k3OIU6
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_73fe3/fast && gmake[1]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-k3OIU6'
+/usr/bin/gmake  -f CMakeFiles/cmTC_73fe3.dir/build.make CMakeFiles/cmTC_73fe3.dir/build
+gmake[2]: Entering directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-k3OIU6'
+Building C object CMakeFiles/cmTC_73fe3.dir/CheckSymbolExists.c.o
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=aarch64-none-linux-android23 --sysroot=/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE -MD -MT CMakeFiles/cmTC_73fe3.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_73fe3.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_73fe3.dir/CheckSymbolExists.c.o -c /home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-k3OIU6/CheckSymbolExists.c
+/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-k3OIU6/CheckSymbolExists.c:3:10: fatal error: 'sys/event.h' file not found
+#include <sys/event.h>
+         ^~~~~~~~~~~~~
+1 error generated.
+gmake[2]: *** [CMakeFiles/cmTC_73fe3.dir/build.make:79: CMakeFiles/cmTC_73fe3.dir/CheckSymbolExists.c.o] Error 1
+gmake[2]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-k3OIU6'
+gmake[1]: *** [Makefile:127: cmTC_73fe3/fast] Error 2
+gmake[1]: Leaving directory '/home/ak/org/libbaresip-android/re/build/CMakeFiles/CMakeScratch/TryCompile-k3OIU6'
+
+
+File CheckSymbolExists.c:
+/* */
+#include <sys/types.h>
+#include <sys/event.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef kqueue
+  return ((int*)(&kqueue))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

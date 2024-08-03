@@ -1,0 +1,40 @@
+homing_amr_wb_dec.lo: \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/homing_amr_wb_dec.cpp \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pv_amr_wb_type_defs.h \
+  ../oscl/oscl_base.h \
+  /home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include/stdint.h \
+  /home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/stdint.h \
+  /home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/bits/wchar_limits.h \
+  /home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/sys/cdefs.h \
+  /home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/android/versioning.h \
+  /home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/android/api-level.h \
+  /home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/bits/get_device_api_level_inlines.h \
+  /home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/android/ndk-version.h \
+  /home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include/stddef.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder_cnst.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/include/pvamrwbdecoder_api.h \
+  ../opencore/codecs_v2/audio/gsm_amr/common/dec/include/pvgsmamrdecoderinterface.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder_basic_op.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/normalize_amr_wb.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder_basic_op_cequivalent.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/get_amr_wb_bits.h
+../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pv_amr_wb_type_defs.h:
+../oscl/oscl_base.h:
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include/stdint.h:
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/stdint.h:
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/bits/wchar_limits.h:
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/sys/cdefs.h:
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/android/versioning.h:
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/android/api-level.h:
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/bits/get_device_api_level_inlines.h:
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/include/android/ndk-version.h:
+/home/ak/Android/Sdk/ndk/26.0.10792818/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include/stddef.h:
+../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder_cnst.h:
+../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder.h:
+../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/include/pvamrwbdecoder_api.h:
+../opencore/codecs_v2/audio/gsm_amr/common/dec/include/pvgsmamrdecoderinterface.h:
+../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder_basic_op.h:
+../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/normalize_amr_wb.h:
+../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder_basic_op_cequivalent.h:
+../opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/get_amr_wb_bits.h:
